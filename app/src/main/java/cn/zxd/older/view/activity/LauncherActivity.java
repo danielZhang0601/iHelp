@@ -25,12 +25,8 @@ public class LauncherActivity extends BaseActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                toNext();
+                MainActivity.launch(LauncherActivity.this);
             }
         }, 500);
-    }
-
-    private void toNext() {
-        MainActivity.launch(this);
     }
 }

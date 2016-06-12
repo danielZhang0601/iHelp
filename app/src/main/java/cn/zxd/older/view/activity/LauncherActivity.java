@@ -26,6 +26,7 @@ public class LauncherActivity extends BaseActivity {
             @Override
             public void run() {
                 MainActivity.launch(LauncherActivity.this);
+                LauncherActivity.this.finish();
             }
         }, 500);
     }

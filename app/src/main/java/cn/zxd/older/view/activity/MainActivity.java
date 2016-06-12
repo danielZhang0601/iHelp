@@ -95,6 +95,7 @@ public class MainActivity extends BaseActivity
         FragmentTransaction transaction = fm.beginTransaction();
         demandFragment = new DemandFragment();
         transaction.replace(R.id.fl_main, demandFragment);
+        transaction.commit();
     }
 
     @OnClick(R.id.rl_title_left)

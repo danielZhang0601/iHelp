@@ -3,7 +3,10 @@ package cn.zxd.older.view.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.zxd.older.R;
 
 public class SearchActivity extends BaseActivity {
@@ -18,5 +21,12 @@ public class SearchActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        ButterKnife.bind(this);
     }
+
+    @OnClick(R.id.iv_title_left)
+    void backClick(View view) {
+        onBackPressed();
+    }
+
 }

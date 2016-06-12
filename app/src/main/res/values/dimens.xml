@@ -15,6 +15,7 @@
 
     <!-- common -->
     <dimen name="common_item_height">50dp</dimen>
+    <dimen name="common_bottom_bar_height">120dp</dimen>
     <dimen name="common_title_bar_height">60dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="nav_header_vertical_spacing">16dp</dimen>

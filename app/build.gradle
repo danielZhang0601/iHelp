@@ -29,18 +29,17 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //3.4.7-aar：具务必查看下面注释[1]
-    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
     //bmob-push：Bmob的推送包
-    compile 'cn.bmob.android:bmob-push:0.8'
     //bmob-sms ：Bmob单独为短信服务提供的包
-    compile 'cn.bmob.android:bmob-sms:1.0.1'
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
-    compile 'cn.bmob.android:http-legacy:1.0'
     //WeakHandler
-    compile 'com.badoo.mobile:android-weak-handler:1.1'
     //Butter Knife
+    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
+    compile 'cn.bmob.android:bmob-push:0.8'
+    compile 'cn.bmob.android:bmob-sms:1.0.1'
+    compile 'cn.bmob.android:http-legacy:1.0'
+    compile 'com.badoo.mobile:android-weak-handler:1.1'
     compile 'com.jakewharton:butterknife:8.0.1'
-    apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:design:23.4.0'
@@ -49,4 +48,5 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support:support-annotations:23.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }

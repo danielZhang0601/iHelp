@@ -102,4 +102,9 @@ public class MainActivity extends BaseActivity
     void titleLeftClick(View view) {
         drawer_layout.openDrawer(GravityCompat.START);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        demandFragment.onActivityResult(requestCode, resultCode, data);
+    }
 }

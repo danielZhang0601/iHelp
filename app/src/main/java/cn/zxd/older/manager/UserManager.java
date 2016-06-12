@@ -41,6 +41,7 @@ public class UserManager {
         BmobSMS.requestSMSCode(mContext, user.getMobilePhoneNumber(), "模板名称", new RequestSMSCodeListener() {
             @Override
             public void done(Integer integer, BmobException e) {
+
             }
         });
     }

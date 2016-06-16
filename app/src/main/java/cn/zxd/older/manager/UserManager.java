@@ -1,6 +1,7 @@
 package cn.zxd.older.manager;
 
 import android.content.Context;
+import android.util.Log;
 
 import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.BmobUser;
@@ -36,14 +37,9 @@ public class UserManager {
         return isLogined;
     }
 
-    public void getSMS(String mobile) {
+    public void getSMS(String mobile, RequestSMSCodeListener listener) {
         user.setMobilePhoneNumber(mobile);
-        BmobSMS.requestSMSCode(mContext, user.getMobilePhoneNumber(), "模板名称", new RequestSMSCodeListener() {
-            @Override
-            public void done(Integer integer, BmobException e) {
-
-            }
-        });
+        BmobSMS.requestSMSCode(mContext, user.getMobilePhoneNumber(), "爱无疆", listener);
     }
 
     public void login(String mobile, String smsCode, final SaveListener saveListener) {

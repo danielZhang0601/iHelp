@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zxd.older.R;
-import cn.zxd.older.manager.UserManager;
+import cn.zxd.older.model.User;
 import cn.zxd.older.view.fragment.DemandFragment;
 import cn.zxd.older.view.fragment.SupplyFragment;
 
@@ -61,8 +62,7 @@ public class MainActivity extends BaseActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        //TODO 判断登录
-        if (!UserManager.getInstance(this).isLogined()) {
+        if (null == User.getCurrentUser(this)) {
             LoginActivity.launch(this);
             return true;
         } else {

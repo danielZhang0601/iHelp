@@ -78,7 +78,15 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    @OnClick(R.id.tv_login_sign_up)
+    protected void signUpClick(View view) {
+        SignUpActivity.launch(view.getContext());
+    }
 
+    @OnClick(R.id.tv_login_get_password)
+    protected void getPasswordClick(View view) {
+        GetPasswordActivity.launch(view.getContext());
+    }
 
     @OnFocusChange(R.id.et_login_account)
     protected void accountEditDone(boolean hasFocus) {

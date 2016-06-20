@@ -1,4 +1,4 @@
-package cn.zxd.older.view.util;
+package cn.zxd.older.util;
 
 /**
  * Created by danielzhang on 16/6/13.

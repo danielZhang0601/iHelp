@@ -3,40 +3,31 @@ package cn.zxd.older.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.UserManager;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.RequestSMSCodeListener;
+import butterknife.OnFocusChange;
+import cn.bmob.v3.listener.SaveListener;
 import cn.zxd.older.R;
 import cn.zxd.older.model.User;
-import cn.zxd.older.view.util.ValidateHelper;
+import cn.zxd.older.util.SoftInputHelper;
+import cn.zxd.older.util.ValidateHelper;
 
 /**
  */
 public class LoginActivity extends BaseActivity {
 
-    public static final int MSG_SMS_SENDED = 1;
-    public static final int MSG_SMS_COUNT = 2;
-    public static final int MSG_SMS_DONE = 3;
+    @BindView(R.id.til_login_account)
+    protected TextInputLayout til_login_account;
 
-    @BindView(R.id.et_login_account)
-    protected EditText et_login_account;
-
-    @BindView(R.id.et_login_sms_code)
-    protected EditText et_login_sms_code;
-
-    private LoginHandler loginHandler = new LoginHandler(this);
+    @BindView(R.id.til_login_password)
+    protected TextInputLayout til_login_password;
 
     protected static void launch(Context context) {
         context.startActivity(new Intent(context, LoginActivity.class));
@@ -52,35 +43,60 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        loginHandler.removeCallbacksAndMessages(null);
     }
 
-    @OnClick(R.id.btn_login_get_sms)
-    protected void getSmsCode(final View view) {
-        view.setEnabled(false);
-        if (ValidateHelper.validatePhone(et_login_account.getText().toString())) {
-            User user = new User();
-            user.setMobilePhoneNumber(et_login_account.getText().toString());
-        } else {
-            Toast.makeText(view.getContext(), "请输入正确的手机号", Toast.LENGTH_SHORT).show();
-        }
+    @OnClick(R.id.rl_login_root)
+    protected void rootClick(View view) {
+        SoftInputHelper.closeSoftInput(view);
+    }
+
+    @OnClick(R.id.rl_title_left)
+    protected void backClick() {
+        onBackPressed();
     }
 
     @OnClick(R.id.btn_login_submit)
-    protected void submit(View view) {
+    protected void submitClick(View view) {
+        SoftInputHelper.closeSoftInput(view);
+        if (ValidateHelper.validatePhone(til_login_account.getEditText().getText().toString())
+                && ValidateHelper.validatePassword(til_login_password.getEditText().getText().toString())) {
+            User user = new User();
+            user.setUsername(til_login_account.getEditText().getText().toString());
+            user.setMobilePhoneNumber(til_login_account.getEditText().getText().toString());
+            user.setPassword(til_login_password.getEditText().getText().toString());
+            user.login(view.getContext(), new SaveListener() {
+                @Override
+                public void onSuccess() {
+                    LoginActivity.this.finish();
+                }
 
+                @Override
+                public void onFailure(int i, String s) {
+                    Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
-    private static class LoginHandler extends Handler {
-        private final WeakReference<LoginActivity> activity;
 
-        public LoginHandler(LoginActivity act) {
-            activity = new WeakReference<LoginActivity>(act);
-        }
 
-        @Override
-        public void handleMessage(Message msg) {
+    @OnFocusChange(R.id.et_login_account)
+    protected void accountEditDone(boolean hasFocus) {
+        if (!hasFocus && !ValidateHelper.validatePhone(til_login_account.getEditText().getText().toString())) {
+            til_login_account.setError("input valid phone");
+        } else {
+            til_login_account.setErrorEnabled(false);
+            til_login_account.setError(null);
         }
     }
 
+    @OnFocusChange(R.id.et_login_password)
+    protected void passwordEditDone(boolean hasFocus) {
+        if (!hasFocus && !ValidateHelper.validatePassword(til_login_password.getEditText().getText().toString())) {
+            til_login_password.setError("input valid password, must between 8 to 20 characters");
+        } else {
+            til_login_password.setErrorEnabled(false);
+            til_login_password.setError(null);
+        }
+    }
 }

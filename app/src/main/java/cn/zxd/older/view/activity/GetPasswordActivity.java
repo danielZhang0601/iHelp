@@ -21,4 +21,9 @@ public class GetPasswordActivity extends BaseTimerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_or_get_password);
     }
+
+    @Override
+    protected void smsTimerTaskRun() {
+
+    }
 }

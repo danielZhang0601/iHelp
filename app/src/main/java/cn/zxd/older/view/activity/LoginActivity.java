@@ -58,6 +58,8 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.btn_login_submit)
     protected void submitClick(View view) {
         SoftInputHelper.closeSoftInput(view);
+
+
         if (ValidateHelper.validatePhone(til_login_account.getEditText().getText().toString())
                 && ValidateHelper.validatePassword(til_login_password.getEditText().getText().toString())) {
             User user = new User();
@@ -75,6 +77,10 @@ public class LoginActivity extends BaseActivity {
                     Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
                 }
             });
+        } else if (!ValidateHelper.validatePhone(til_login_account.getEditText().getText().toString())) {
+            accountEditDone(false);
+        } else {
+            passwordEditDone(false);
         }
     }
 

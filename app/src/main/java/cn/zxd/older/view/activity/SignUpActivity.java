@@ -137,7 +137,7 @@ public class SignUpActivity extends BaseTimerActivity {
     @OnFocusChange(R.id.et_password)
     void passwordEditDone(boolean hasFocus) {
         if (!hasFocus && !ValidateHelper.validatePhone(til_password.getEditText().getText().toString())) {
-            til_password.setError("input valid password");
+            til_password.setError("input valid password, must between 8 to 20 characters");
         } else {
             til_password.setErrorEnabled(false);
             til_password.setError(null);

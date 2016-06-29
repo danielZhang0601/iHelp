@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,7 +87,7 @@ public class SignUpActivity extends BaseTimerActivity {
         SoftInputHelper.closeSoftInput(view);
         if (ValidateHelper.validatePhone(til_account.getEditText().getText().toString())
                 && ValidateHelper.validateSMS(til_sms.getEditText().getText().toString())
-                && ValidateHelper.validatePassword(til_password.getEditText().toString())) {
+                && ValidateHelper.validatePassword(til_password.getEditText().getText().toString())) {
             BmobSMS.verifySmsCode(view.getContext(), til_account.getEditText().getText().toString(),
                     til_sms.getEditText().getText().toString(), new VerifySMSCodeListener(){
 
@@ -100,12 +101,13 @@ public class SignUpActivity extends BaseTimerActivity {
 
                                     @Override
                                     public void onSuccess() {
-
+                                        Toast.makeText(view.getContext(), "sign up success", Toast.LENGTH_SHORT).show();
+                                        SignUpActivity.this.finish();
                                     }
 
                                     @Override
                                     public void onFailure(int i, String s) {
-
+                                        Toast.makeText(view.getContext(), s, Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
@@ -126,7 +128,7 @@ public class SignUpActivity extends BaseTimerActivity {
 
     @OnFocusChange(R.id.et_sms)
     void smsEditDone(boolean hasFocus) {
-        if (!hasFocus && !ValidateHelper.validatePhone(til_sms.getEditText().getText().toString())) {
+        if (!hasFocus && !ValidateHelper.validateSMS(til_sms.getEditText().getText().toString())) {
             til_sms.setError("input valid sms");
         } else {
             til_sms.setErrorEnabled(false);
@@ -136,7 +138,7 @@ public class SignUpActivity extends BaseTimerActivity {
 
     @OnFocusChange(R.id.et_password)
     void passwordEditDone(boolean hasFocus) {
-        if (!hasFocus && !ValidateHelper.validatePhone(til_password.getEditText().getText().toString())) {
+        if (!hasFocus && !ValidateHelper.validatePassword(til_password.getEditText().getText().toString())) {
             til_password.setError("input valid password, must between 8 to 20 characters");
         } else {
             til_password.setErrorEnabled(false);

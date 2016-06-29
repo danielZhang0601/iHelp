@@ -4,20 +4,19 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.UserManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobUser;
 import cn.zxd.older.R;
 import cn.zxd.older.model.User;
 import cn.zxd.older.view.fragment.DemandFragment;
@@ -50,6 +49,16 @@ public class MainActivity extends BaseActivity
         ButterKnife.bind(this);
         initViews();
         setDefaultFragment();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        BmobUser user = BmobUser.getCurrentUser(this);
+        if (null != user) {
+            TextView textView = (TextView) nav_view.findViewById(R.id.textViewName);
+            textView.setText("User" + user.getUsername());
+        }
     }
 
     @Override

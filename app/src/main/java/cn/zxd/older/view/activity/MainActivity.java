@@ -54,11 +54,6 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onStart() {
         super.onStart();
-        BmobUser user = BmobUser.getCurrentUser(this);
-        if (null != user) {
-            TextView textView = (TextView) nav_view.findViewById(R.id.textViewName);
-            textView.setText("User" + user.getUsername());
-        }
     }
 
     @Override
@@ -110,8 +105,14 @@ public class MainActivity extends BaseActivity
     }
 
     @OnClick(R.id.rl_title_left)
-    void titleLeftClick(View view) {
+    void titleLeftClick() {
         drawer_layout.openDrawer(GravityCompat.START);
+        BmobUser user = BmobUser.getCurrentUser(this);
+        if (null != user) {
+            TextView textView = (TextView) nav_view.findViewById(R.id.textViewName);
+            if (null != textView)
+                textView.setText("User" + user.getUsername());
+        }
     }
 
     @Override

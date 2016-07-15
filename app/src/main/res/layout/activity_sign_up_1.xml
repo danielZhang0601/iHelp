@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_sign_up_1_title"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/tv_sign_up_1_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24dp"
+            android:text="取消"
+            android:textColor="#BCC8D2"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_sign_up_1_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_sign_up_1_title"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="32dp"
+        android:text="你的手机号是?"
+        android:textColor="#00CD82"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_sign_up_1_account"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_item_height"
+        android:layout_below="@id/tv_sign_up_1_account"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="46dp"
+        android:background="@drawable/input_text_bg"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_sign_up_1_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:hint="填写本人实名认证手机号"
+            android:textColorHint="#BCC8D2"
+            android:background="@null"
+            android:textSize="16sp"
+            android:inputType="phone"
+            android:maxLength="11">
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_sign_up_1_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_item_height"
+        android:layout_below="@id/ll_sign_up_1_account"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/common_button"
+        android:text="下一步"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_sign_up_1_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_sign_up_1_submit"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="18dp"
+        android:text="老用户登录"
+        android:textColor="#00CD82"
+        android:textSize="14sp" />
+
+</RelativeLayout>

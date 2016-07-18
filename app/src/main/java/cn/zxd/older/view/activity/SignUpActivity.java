@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zxd.older.R;
+import cn.zxd.older.model.User;
+import cn.zxd.older.util.SoftInputHelper;
+import cn.zxd.older.util.ValidateHelper;
 
 /**
  * Created by Daniel on 2016/6/21.
@@ -41,8 +45,22 @@ public class SignUpActivity extends BaseActivity {
     }
 
     @OnClick(R.id.btn_sign_up_1_submit)
-    void next() {
-
+    void next(View view) {
+        //关闭软键盘
+        SoftInputHelper.closeSoftInput(view);
+        //校验手机号码
+        if (ValidateHelper.validatePhone(et_sign_up_1_account.getText().toString())) {
+//            BmobSMS.requestSMSCode(view.getContext(), et_sign_up_1_account.getText().toString(), "爱无疆", new RequestSMSCodeListener() {
+//                @Override
+//                public void done(Integer integer, BmobException e) {
+//                    if (null == e) {
+                        Bundle data = new Bundle();
+                        data.putString(User.USER_MOBILE, et_sign_up_1_account.getText().toString());
+                        SignUpNextActivity.launch(SignUpActivity.this, data);
+//                    }
+//                }
+//            });
+        }
     }
 
 //    @Override

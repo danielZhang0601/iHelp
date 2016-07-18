@@ -8,6 +8,8 @@ import cn.bmob.v3.BmobUser;
 
 public class User extends BmobUser {
 
+    public static final String USER_MOBILE = "UserMobile";
+
     private boolean isSupply = false;
 
     private long latitude;

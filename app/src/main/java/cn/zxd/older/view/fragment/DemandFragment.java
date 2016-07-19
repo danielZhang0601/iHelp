@@ -183,13 +183,13 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
     }
 
     @OnClick(R.id.lv_search)
-    protected void searchClick(View view) {
+    protected void searchClick() {
         SearchActivity.launch(getActivity(), null, REQUEST_SEARCH_ACTIVITY);
     }
 
     void initLocation() {
         mv_map.getMap().setLocationSource(this);
-        mv_map.getMap().getUiSettings().setMyLocationButtonEnabled(true);
+        mv_map.getMap().getUiSettings().setMyLocationButtonEnabled(false);
         mv_map.getMap().setMyLocationEnabled(true);
     }
 

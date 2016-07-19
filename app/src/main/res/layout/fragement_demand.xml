@@ -11,10 +11,10 @@
     <LinearLayout
         android:id="@+id/lv_search"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/round_grey_border_white_bg"
         android:orientation="horizontal">
 
@@ -26,8 +26,16 @@
 
         <TextView
             android:id="@+id/tv_dest_location"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="@dimen/common_item_height"
+            android:layout_height="@dimen/common_item_height"
+            android:background="@drawable/my_location_bg"
+            android:scaleType="center"
+            android:src="@mipmap/my_location"/>
 
     </LinearLayout>
 
@@ -47,8 +55,8 @@
                 android:id="@+id/rb_demand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="陪医导诊"
-                android:checked="true" />
+                android:checked="true"
+                android:text="陪医导诊" />
 
             <RadioButton
                 android:id="@+id/rb_supply"

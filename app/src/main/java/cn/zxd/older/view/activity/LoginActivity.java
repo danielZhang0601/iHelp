@@ -23,6 +23,9 @@ import cn.zxd.older.util.ValidateHelper;
  */
 public class LoginActivity extends BaseActivity {
 
+    private static final int REQUEST_CODE_SIGN_UP = 100;
+    private static final int REQUEST_CODE_GET_PASSWORD = 101;
+
     @BindView(R.id.til_login_account)
     protected TextInputLayout til_login_account;
 
@@ -84,7 +87,7 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.tv_login_sign_up)
     protected void signUpClick(View view) {
-        SignUpActivity.launch(view.getContext());
+        SignUpActivity.launchForResult(LoginActivity.this, REQUEST_CODE_SIGN_UP);
     }
 
     @OnClick(R.id.tv_login_get_password)
@@ -109,6 +112,19 @@ public class LoginActivity extends BaseActivity {
         } else {
             til_login_password.setErrorEnabled(false);
             til_login_password.setError(null);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_SIGN_UP) {
+            if (resultCode == RESULT_OK) {
+                finish();
+            }
+        } else if (requestCode == REQUEST_CODE_GET_PASSWORD) {
+
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }

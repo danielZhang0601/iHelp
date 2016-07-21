@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_item_height"
                 android:background="@drawable/input_text_bg"
-                android:hint="Account"
+                android:hint="手机号码"
                 android:inputType="number"
                 android:maxLength="11"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -61,10 +61,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_item_height"
                 android:background="@drawable/input_text_bg"
-                android:hint="Password"
+                android:hint="密码"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:textColor="#7F8D99"
                 android:textColorHint="#BCC8D2"
+                android:inputType="textPassword"
                 android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -80,7 +81,7 @@
         android:layout_marginTop="@dimen/activity_vertical_margin_x2"
         android:background="@drawable/common_button"
         android:elevation="8dp"
-        android:text="@string/submit"
+        android:text="登录"
         android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
@@ -98,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Sign Up"
+            android:text="注册新用户"
             android:textColor="#00CD82"
             android:textSize="14sp" />
 
@@ -108,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Get Password?"
+            android:text="忘记密码?"
             android:textColor="#BCC8D2"
             android:textSize="14sp" />
     </RelativeLayout>

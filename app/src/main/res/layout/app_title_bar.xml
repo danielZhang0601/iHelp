@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/common_title_bar_height"
-    android:background="@color/colorPrimary">
+    android:layout_height="@dimen/common_title_bar_height">
 
     <RelativeLayout
         android:id="@+id/rl_title_left"
@@ -14,6 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:src="@mipmap/back"
             android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
         <TextView

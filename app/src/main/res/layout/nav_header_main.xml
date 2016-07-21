@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:text="18666626667"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorWhite"
         android:textSize="14sp" />

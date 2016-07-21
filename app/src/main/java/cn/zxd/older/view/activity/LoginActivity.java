@@ -85,10 +85,10 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
-    @OnClick(R.id.tv_login_sign_up)
-    protected void signUpClick(View view) {
-        SignUpActivity.launchForResult(LoginActivity.this, REQUEST_CODE_SIGN_UP);
-    }
+//    @OnClick(R.id.tv_login_sign_up)
+//    protected void signUpClick(View view) {
+//        SignUpActivity.launchForResult(LoginActivity.this, REQUEST_CODE_SIGN_UP);
+//    }
 
     @OnClick(R.id.tv_login_get_password)
     protected void getPasswordClick(View view) {
@@ -98,7 +98,7 @@ public class LoginActivity extends BaseActivity {
     @OnFocusChange(R.id.et_login_account)
     protected void accountEditDone(boolean hasFocus) {
         if (!hasFocus && !ValidateHelper.validatePhone(til_login_account.getEditText().getText().toString())) {
-            til_login_account.setError("input valid phone");
+            til_login_account.setError("手机号码错误");
         } else {
             til_login_account.setErrorEnabled(false);
             til_login_account.setError(null);
@@ -108,7 +108,7 @@ public class LoginActivity extends BaseActivity {
     @OnFocusChange(R.id.et_login_password)
     protected void passwordEditDone(boolean hasFocus) {
         if (!hasFocus && !ValidateHelper.validatePassword(til_login_password.getEditText().getText().toString())) {
-            til_login_password.setError("input valid password, must between 8 to 20 characters");
+            til_login_password.setError("密码长度为8-20");
         } else {
             til_login_password.setErrorEnabled(false);
             til_login_password.setError(null);

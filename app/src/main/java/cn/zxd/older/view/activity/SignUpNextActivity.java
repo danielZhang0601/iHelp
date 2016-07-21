@@ -41,6 +41,9 @@ public class SignUpNextActivity extends BaseTimerActivity {
     @BindView(R.id.rl_sign_up_2_password)
     RelativeLayout rl_sign_up_2_password;
 
+    @BindView(R.id.btn_sign_up_get_sms)
+    Button btn_sign_up_get_sms;
+
     @BindView(R.id.et_sign_up_2_password)
     EditText et_sign_up_2_password;
 
@@ -66,11 +69,19 @@ public class SignUpNextActivity extends BaseTimerActivity {
         if (null != account && !account.isEmpty()) {
             tv_sign_up_2_account.setText(account);
         }
+        startTimer();
     }
 
     @Override
     protected void smsTimerTaskRun() {
-
+        if (--tickCount > 0) {
+            btn_sign_up_get_sms.setEnabled(false);
+            btn_sign_up_get_sms.setText(String.format("(%d)重获验证码", tickCount));
+        } else {
+            stopTimer();
+            btn_sign_up_get_sms.setText(String.format("重新获取验证码"));
+            btn_sign_up_get_sms.setEnabled(true);
+        }
     }
 
     @OnClick(R.id.iv_sign_up_2_title_back)
@@ -82,6 +93,11 @@ public class SignUpNextActivity extends BaseTimerActivity {
     void onCancel() {
         setResult(RESULT_FIRST_USER);
         finish();
+    }
+
+    @OnClick(R.id.btn_sign_up_get_sms)
+    void onGetSms() {
+
     }
 
     @OnClick(R.id.btn_sign_up_2_submit)

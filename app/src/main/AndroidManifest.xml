@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.zxd.older">
+    package="cn.zxd.ihelp">
 
     <!-- BMOB权限 start -->
     <!-- 允许联网 -->
@@ -28,7 +28,7 @@
 
     <!-- 高德地图权限 end -->
     <application
-        android:name=".AppApplication"
+        android:name="cn.zxd.ihelp.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -39,7 +39,7 @@
             android:value="dfb337bdedbba04eb705e8c1744a05ec" />
 
         <activity
-            android:name=".view.activity.LauncherActivity"
+            android:name="cn.zxd.ihelp.view.activity.LauncherActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -51,32 +51,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.LoginActivity"
+            android:name="cn.zxd.ihelp.view.activity.LoginActivity"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name="cn.zxd.ihelp.view.activity.MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".view.activity.SearchActivity"
+            android:name="cn.zxd.ihelp.view.activity.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.SignUpActivity"
+            android:name="cn.zxd.ihelp.view.activity.SignUpActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".view.activity.SignUpNextActivity"
+            android:name="cn.zxd.ihelp.view.activity.SignUpNextActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.GetPasswordActivity"
+            android:name="cn.zxd.ihelp.view.activity.GetPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.WalletActivity"
+            android:name="cn.zxd.ihelp.view.activity.WalletActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.BonusActivity"
+            android:name="cn.zxd.ihelp.view.activity.BonusActivity"
             android:screenOrientation="portrait" />
     </application>
 

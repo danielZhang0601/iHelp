@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import java.util.List;
 
 import cn.zxd.older.R;
-import cn.zxd.older.model.BonusModel;
+import cn.zxd.older.model.Bonus;
 
 /**
  * Created by danielzhang on 16/7/22.
@@ -18,18 +18,18 @@ import cn.zxd.older.model.BonusModel;
 public class BonusAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<BonusModel> bonus;
+    private List<Bonus> bonus;
 
     public BonusAdapter(Context context) {
         this.mContext = context;
     }
 
-    public BonusAdapter(Context mContext, List<BonusModel> bonus) {
+    public BonusAdapter(Context mContext, List<Bonus> bonus) {
         this.mContext = mContext;
         this.bonus = bonus;
     }
 
-    public void setBonus(List<BonusModel> bonus) {
+    public void setBonus(List<Bonus> bonus) {
         this.bonus.clear();
         this.bonus.addAll(bonus);
     }

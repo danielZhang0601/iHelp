@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_title_bar" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="42dp"
+        android:src="@mipmap/share" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="26dp"
+        android:text="给好友发红包，邀请好友注册"
+        android:textColor="#4A4A4A"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_share_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_item_height"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin_x2"
+        android:layout_marginRight="@dimen/activity_horizontal_margin_x2"
+        android:layout_marginTop="66dp"
+        android:background="@drawable/common_button"
+        android:text="分享到朋友圈"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+</LinearLayout>

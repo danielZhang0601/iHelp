@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.zxd.ihelp.R;
 import cn.zxd.ihelp.view.adapter.BonusAdapter;
 
@@ -40,6 +41,11 @@ public class BonusActivity extends BaseActivity {
         setContentView(R.layout.activity_bonus);
         ButterKnife.bind(this);
         initViews();
+    }
+
+    @OnClick(R.id.rl_title_left)
+    void onBack(){
+        onBackPressed();
     }
 
     void initViews() {

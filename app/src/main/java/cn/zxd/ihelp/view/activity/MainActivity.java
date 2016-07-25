@@ -83,8 +83,10 @@ public class MainActivity extends BaseActivity
                     BonusActivity.launch(this, null);
                     return true;
                 case R.id.nav_message:
+                    MessageActivity.launch(this, null);
                     return true;
                 case R.id.nav_share:
+                    ShareActivity.launch(this, null);
                     return true;
                 case R.id.nav_join:
                     return true;

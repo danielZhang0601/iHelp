@@ -78,6 +78,12 @@
         <activity
             android:name="cn.zxd.ihelp.view.activity.BonusActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="cn.zxd.ihelp.view.activity.MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cn.zxd.ihelp.view.activity.ShareActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

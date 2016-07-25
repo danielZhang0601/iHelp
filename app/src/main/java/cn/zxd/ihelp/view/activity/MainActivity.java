@@ -99,7 +99,7 @@ public class MainActivity extends BaseActivity
     }
 
     private void initViews() {
-        iv_title_left.setImageResource(R.mipmap.ic_contact_picture);
+        iv_title_left.setImageResource(R.mipmap.menu);
         nav_view.setNavigationItemSelectedListener(this);
     }
 

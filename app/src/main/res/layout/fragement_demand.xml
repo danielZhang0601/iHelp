@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -35,42 +36,56 @@
             android:layout_height="@dimen/common_item_height"
             android:background="@drawable/my_location_bg"
             android:scaleType="center"
-            android:src="@mipmap/my_location"/>
+            android:src="@mipmap/my_location" />
 
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_bottom_bar_height"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorWhite">
+        android:layout_alignParentBottom="true">
 
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorWhite">
 
-            <RadioButton
-                android:id="@+id/rb_demand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="陪医导诊" />
+            <cn.zxd.ihelp.view.widget.ImageRadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                custom:checked="true"
+                custom:imageRadioButtonText="陪医导诊" />
 
-            <RadioButton
-                android:id="@+id/rb_supply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="免费挂号" />
-        </RadioGroup>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="#F0F0F0" />
+
+            <cn.zxd.ihelp.view.widget.ImageRadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                custom:imageRadioButtonText="免费挂号" />
+
+        </LinearLayout>
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/common_item_height"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/common_button"
+            android:text="预约陪诊导医"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 

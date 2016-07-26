@@ -43,15 +43,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_bottom_bar_height"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorWhite">
+            android:layout_marginTop="10dp">
 
             <cn.zxd.ihelp.view.widget.ImageRadioButton
                 android:layout_width="0dp"

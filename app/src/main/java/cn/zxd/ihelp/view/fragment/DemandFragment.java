@@ -34,6 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.zxd.ihelp.R;
+import cn.zxd.ihelp.model.SearchObject;
 import cn.zxd.ihelp.view.activity.SearchActivity;
 
 
@@ -110,7 +111,11 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
         if (requestCode == REQUEST_SEARCH_ACTIVITY) {
             if (resultCode == Activity.RESULT_OK) {
                 if (null != data) {
-
+                    SearchObject result = (SearchObject) data.getSerializableExtra("data");
+                    tv_dest_location.setText(result.getText());
+                    LatLng mLatLng = new LatLng(result.getLatitude(), result.getLongitude());
+                    if (null != mv_map && null != mv_map.getMap())
+                        mv_map.getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng, DEFAULT_ZOOM_SIZE));
                 }
             }
         }
@@ -162,7 +167,7 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
         RegeocodeQuery query = new RegeocodeQuery(point, 50, GeocodeSearch.AMAP);
         geocodeSearch.getFromLocationAsyn(query);
         //向服务器请求数据
-        String resultStr = String.format("附近有%d位陪护人员", (int)(Math.random() * 100));
+        String resultStr = String.format("附近有%d位陪护人员", (int) (Math.random() * 100));
         tv_now_demand.setText(resultStr);
         //TODO 根据服务器返回数据添加地图mark点
     }
@@ -184,7 +189,7 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
 
     @OnClick(R.id.lv_search)
     protected void searchClick() {
-        SearchActivity.launch(getActivity(), null, REQUEST_SEARCH_ACTIVITY);
+        SearchActivity.launchForResult(getActivity(), null, REQUEST_SEARCH_ACTIVITY);
     }
 
     void initLocation() {

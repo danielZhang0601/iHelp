@@ -111,7 +111,7 @@ public class MainActivity extends BaseActivity
         transaction.commit();
     }
 
-    @OnClick(R.id.rl_title_left)
+    @OnClick(R.id.iv_title_left)
     void titleLeftClick() {
         drawer_layout.openDrawer(GravityCompat.START);
         BmobUser user = BmobUser.getCurrentUser(this);

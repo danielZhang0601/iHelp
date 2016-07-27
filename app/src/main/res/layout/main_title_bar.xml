@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/common_title_bar_height"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/iv_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/common_border"
+        android:orientation="horizontal"
+        android:padding="1dp">
+
+        <RadioButton
+            android:id="@+id/rb_main_demand"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:background="@drawable/background_state"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="用户"
+            android:textColor="@color/text_state_color" />
+
+        <RadioButton
+            android:id="@+id/rb_supply"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:background="@drawable/background_state"
+            android:button="@null"
+            android:gravity="center"
+            android:text="陪护"
+            android:textColor="@color/text_state_color" />
+
+    </RadioGroup>
+
+</RelativeLayout>

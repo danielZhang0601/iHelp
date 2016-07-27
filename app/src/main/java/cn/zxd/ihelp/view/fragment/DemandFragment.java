@@ -226,10 +226,22 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
         Toast.makeText(getActivity(), "开发中", Toast.LENGTH_SHORT).show();
     }
 
+    @OnClick(R.id.iv_demand_my_location)
+    void onMyLocation() {
+        Location myLocation = mv_map.getMap().getMyLocation();
+        if (null != myLocation) {
+            LatLng mLatLng = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
+            if (null != mv_map && null != mv_map.getMap())
+                mv_map.getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng, DEFAULT_ZOOM_SIZE));
+        } else {
+            Toast.makeText(getActivity(), "暂时未能获得您的位置", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     void initLocation() {
         mv_map.getMap().setLocationSource(this);
         mv_map.getMap().getUiSettings().setMyLocationButtonEnabled(false);
-        mv_map.getMap().setMyLocationEnabled(true);
+        mv_map.getMap().setMyLocationEnabled(false);
     }
 
     void initListener() {

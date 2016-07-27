@@ -85,10 +85,10 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
-//    @OnClick(R.id.tv_login_sign_up)
-//    protected void signUpClick(View view) {
-//        SignUpActivity.launchForResult(LoginActivity.this, REQUEST_CODE_SIGN_UP);
-//    }
+    @OnClick(R.id.tv_login_sign_up)
+    protected void signUpClick() {
+        SignUpActivity.launchForResult(LoginActivity.this, REQUEST_CODE_SIGN_UP);
+    }
 
     @OnClick(R.id.tv_login_get_password)
     protected void getPasswordClick(View view) {

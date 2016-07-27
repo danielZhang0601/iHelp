@@ -10,6 +10,9 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobSMS;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.RequestSMSCodeListener;
 import cn.zxd.ihelp.R;
 import cn.zxd.ihelp.model.User;
 import cn.zxd.ihelp.util.SoftInputHelper;
@@ -52,16 +55,16 @@ public class SignUpActivity extends BaseActivity {
         SoftInputHelper.closeSoftInput(view);
         //校验手机号码
         if (ValidateHelper.validatePhone(et_sign_up_1_account.getText().toString())) {
-//            BmobSMS.requestSMSCode(view.getContext(), et_sign_up_1_account.getText().toString(), "爱无疆", new RequestSMSCodeListener() {
-//                @Override
-//                public void done(Integer integer, BmobException e) {
-//                    if (null == e) {
+            BmobSMS.requestSMSCode(view.getContext(), et_sign_up_1_account.getText().toString(), "爱无疆", new RequestSMSCodeListener() {
+                @Override
+                public void done(Integer integer, BmobException e) {
+                    if (null == e) {
             Bundle data = new Bundle();
             data.putString(User.USER_MOBILE, et_sign_up_1_account.getText().toString());
             SignUpNextActivity.launchForResult(SignUpActivity.this, data, REQUEST_CODE_NEXT);
-//                    }
-//                }
-//            });
+                    }
+                }
+            });
         }
     }
 

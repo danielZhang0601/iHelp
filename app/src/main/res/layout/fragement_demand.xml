@@ -32,6 +32,7 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/iv_demand_my_location"
             android:layout_width="@dimen/common_item_height"
             android:layout_height="@dimen/common_item_height"
             android:background="@drawable/my_location_bg"

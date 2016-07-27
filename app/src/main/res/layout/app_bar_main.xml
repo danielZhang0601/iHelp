@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     tools:context="cn.zxd.ihelp.view.activity.MainActivity">
 
-    <include layout="@layout/app_title_bar" />
+    <include layout="@layout/main_title_bar" />
 
     <include layout="@layout/content_main" />
 

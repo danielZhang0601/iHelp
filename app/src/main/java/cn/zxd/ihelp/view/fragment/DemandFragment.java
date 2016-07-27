@@ -29,6 +29,7 @@ import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -85,12 +86,14 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
     @Override
     public void onPause() {
         super.onPause();
+        MobclickAgent.onPageEnd(getClass().getSimpleName());
         mv_map.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        MobclickAgent.onPageStart(getClass().getSimpleName());
         mv_map.onResume();
     }
 

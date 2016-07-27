@@ -54,10 +54,12 @@
             android:layout_marginTop="10dp">
 
             <cn.zxd.ihelp.view.widget.ImageRadioButton
+                android:id="@+id/irb_visit"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 custom:checked="true"
+                custom:imageRadioButtonImage="@drawable/visit"
                 custom:imageRadioButtonText="陪医导诊" />
 
             <View
@@ -68,14 +70,17 @@
                 android:background="#F0F0F0" />
 
             <cn.zxd.ihelp.view.widget.ImageRadioButton
+                android:id="@+id/irb_regist"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                custom:imageRadioButtonImage="@drawable/regist"
                 custom:imageRadioButtonText="免费挂号" />
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_demand_submit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/common_item_height"
             android:layout_alignParentBottom="true"

@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.amap.api.location.AMapLocation;
@@ -37,6 +39,7 @@ import butterknife.OnClick;
 import cn.zxd.ihelp.R;
 import cn.zxd.ihelp.model.SearchObject;
 import cn.zxd.ihelp.view.activity.SearchActivity;
+import cn.zxd.ihelp.view.widget.ImageRadioButton;
 
 
 /**
@@ -55,6 +58,15 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
 
     @BindView(R.id.tv_now_demand)
     TextView tv_now_demand;
+
+    @BindView(R.id.irb_regist)
+    ImageRadioButton irb_regist;
+
+    @BindView(R.id.irb_visit)
+    ImageRadioButton irb_visit;
+
+    @BindView(R.id.btn_demand_submit)
+    Button btn_demand_submit;
 
     AMapLocationClient aMapLocationClient;
 
@@ -191,8 +203,27 @@ public class DemandFragment extends Fragment implements AMapLocationListener, Lo
     }
 
     @OnClick(R.id.lv_search)
-    protected void searchClick() {
+    void searchClick() {
         SearchActivity.launchForResult(getActivity(), null, REQUEST_SEARCH_ACTIVITY);
+    }
+
+    @OnClick(R.id.irb_visit)
+    void visitClick() {
+        irb_visit.setChecked(true);
+        irb_regist.setChecked(false);
+        btn_demand_submit.setText("预约陪诊导医");
+    }
+
+    @OnClick(R.id.irb_regist)
+    void registClick() {
+        irb_regist.setChecked(true);
+        irb_visit.setChecked(false);
+        btn_demand_submit.setText("预约免费挂号");
+    }
+
+    @OnClick(R.id.btn_demand_submit)
+    void onSubmit() {
+        Toast.makeText(getActivity(), "开发中", Toast.LENGTH_SHORT).show();
     }
 
     void initLocation() {

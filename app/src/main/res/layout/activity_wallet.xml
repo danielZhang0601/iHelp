@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        layout="@layout/app_title_bar" />
+    <include layout="@layout/app_title_bar" />
+
+    
 
 </LinearLayout>

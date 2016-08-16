@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -111,6 +112,10 @@ public class MainActivity extends BaseActivity
         transaction.commit();
     }
 
+    private void changeFragment() {
+
+    }
+
     @OnClick(R.id.iv_title_left)
     void titleLeftClick() {
         drawer_layout.openDrawer(GravityCompat.START);
@@ -120,6 +125,17 @@ public class MainActivity extends BaseActivity
             if (null != textView)
                 textView.setText("User" + user.getUsername());
         }
+    }
+
+    @OnClick(R.id.rb_main_demand)
+    void demandClick() {
+        Log.e("ZXD", "demandClick");
+
+    }
+
+    @OnClick(R.id.rb_main_supply)
+    void supplyClick() {
+        Log.e("ZXD", "supplyClick");
     }
 
     @Override
